@@ -1,0 +1,32 @@
+[
+    {
+      "description": "Nombre",
+      "mode": "NULLABLE",
+      "name": "nombre",
+      "type": "STRING"
+    },
+    {
+      "description": "Edad",
+      "mode": "NULLABLE",
+      "name": "edad",
+      "type": "INTEGER"
+    },
+    {
+      "description": "Sexo",
+      "mode": "NULLABLE",
+      "name": "sexo",
+      "type": "STRING"
+    },
+    {
+      "description": "Estatura",
+      "mode": "NULLABLE",
+      "name": "estatura",
+      "type": "FLOAT"
+    },
+    {
+      "description": "Peso",
+      "mode": "NULLABLE",
+      "name": "peso",
+      "type": "FLOAT"
+    }
+]

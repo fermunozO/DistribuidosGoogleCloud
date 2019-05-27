@@ -49,3 +49,30 @@ resource "google_compute_firewall" "default" {
 output "ip" {
  value = "${google_compute_instance.default.network_interface.0.access_config.0.nat_ip}"
 }
+
+resource "google_bigquery_dataset" "default" {
+  dataset_id                  = "Dataset_1"
+  friendly_name               = "test"
+  description                 = "Dataset de prueba"
+  location                    = "EU"
+  default_table_expiration_ms = 3600000
+
+  labels = {
+    env = "default"
+  }
+}
+
+resource "google_bigquery_table" "default" {
+  dataset_id = "${google_bigquery_dataset.default.dataset_id}"
+  table_id   = "Personas"
+
+  time_partitioning {
+    type = "DAY"
+  }
+
+  labels = {
+    env = "default"
+  }
+
+  schema = "${file("schema.json")}"
+}
