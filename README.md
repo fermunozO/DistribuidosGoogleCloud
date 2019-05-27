@@ -192,4 +192,30 @@ resource "google_bigquery_table" "default" {
 }
 ```
 
+### Consumir datos de Google Big Query utilizando Python 3 📄
+
+Para consumir datos de algun schema en Big Query en primer lugar se requiere una clave
+de cuenta de servicios para Big Query. Esta se puede obtener dentro de las opciones en
+GoogleCloudPlatform -> API&Services -> Credentials  -> new service account key.
+
+![Alt Text](https://jingsblogcom.files.wordpress.com/2018/11/screen-shot-2018-11-26-at-17-54-50.png)
+
+Haga clic en "Crear", luego obtendrá la clave para esta cuenta de servicio en un archivo json. Coloque este archivo json en una carpeta que creó para su proyecto.
+
+#### Instale las bibliotecas cliente de la API de BigQuery de Google para Python en su computadora 📄
+
+Instale las bibliotecas de cliente de BigQuery API de Google para Python en la VM. Las bibliotecas de python de Google BigQuery api client incluyen las funciones que necesita para conectar Jupyter a Big Query.
+
+En la terminal ssh de la VM -> escribe el siguiente comando
+
+```
+$ pip install google-cloud-bigquery
+
+```
+
+Ahora debe establecer la variable de entorno llamada "GOOGLE_APPLICATION_CREDENTIALS" para apuntar a jupyter con la clave de su cuenta de servicio que acaba de crear. Esta variable le permite a Google saber dónde encontrar sus credenciales de autenticación. Ejecuta esto antes de comenzar tu Jupyter Notebook cada vez.
+
+```
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/~...~/<file-name>.json"
+
 🚀 📋 🔧 ⚙️ 🔩 ⌨️ 📦 🛠️ 🖇️ 📖 📌 ✒️ 📄 🎁 📢 🍺 🤓
