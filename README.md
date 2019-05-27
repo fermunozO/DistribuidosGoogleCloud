@@ -1,8 +1,8 @@
 # DistribuidosGoogleCloud
 
  Integrantes:
- Fernanda Muñoz
- Matias Paredes
+ -Fernanda Muñoz
+ -Matias Paredes
 
 # Descripción del problema
 El problema que se quiere resolver es de disponibilizar un servicio de entorno analítico ocupando distintas herramientas de procesamiento de datos escalables (Base de datos con BigQuery, motor de procesamiento con Spark , interfaz de prueba de código con Jupiter Notebook bajo la arquitectura de Terraform). Dada la necesidad de procesar un conjunto de datos densos, se requiere implementar un sistema distirbuido para procesar eficientemente los datos.
