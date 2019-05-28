@@ -250,12 +250,12 @@ se utilzará Apache Toree. Este paso consta de dos partes, instalar Apache Toree
 ```
 pip install -I https://pypi.anaconda.org/hyoon/simple toree
 ```
-Ejecute el siguiente comando para configurar Apache Toree con Jupyter Notebook. Agregará los núcleos Scala y PySpark a jupyter.
+Ejecute el siguiente comando para configurar Apache Toree con Jupyter Notebook. Agregará los núcleos Scala, PySpark y SQL a jupyter.
 
 ```
 jupyter toree install --spark_home /home/.../spark-2.2.0-bin-hadoop2.7/ --interpreters=Scala,PySpark --user
 ```
-Ahora está listo para ejecutar su programa Spark en Jupyter notebook. Podra ver las 2 opciones (PySpark, Scala) al crear un nuevo cuaderno.
+Ahora está listo para ejecutar su programa Spark en Jupyter notebook. Podra ver las 3 opciones (PySpark, Scala ,SQL) al crear un nuevo cuaderno.
 ![Alt Text](https://cdn-images-1.medium.com/max/1000/1*yt8va5iEfQ5sJKBjIUT7oA.png)
 
 
