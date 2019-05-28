@@ -202,7 +202,7 @@ GoogleCloudPlatform -> API&Services -> Credentials  -> new service account key.
 
 Haga clic en "Crear", luego obtendrá la clave para esta cuenta de servicio en un archivo json. Coloque este archivo json en una carpeta que creó para su proyecto.
 
-#### Instale las bibliotecas cliente de la API de BigQuery de Google para Python en su computadora 📄
+#### Instale las bibliotecas cliente de la API de BigQuery de Google para Python en su computadora 
 
 Instale las bibliotecas de cliente de BigQuery API de Google para Python en la VM. Las bibliotecas de python de Google BigQuery api client incluyen las funciones que necesita para conectar Jupyter a Big Query.
 
@@ -210,12 +210,53 @@ En la terminal ssh de la VM -> escribe el siguiente comando
 
 ```
 $ pip install google-cloud-bigquery
-
 ```
 
-Ahora debe establecer la variable de entorno llamada "GOOGLE_APPLICATION_CREDENTIALS" para apuntar a jupyter con la clave de su cuenta de servicio que acaba de crear. Esta variable le permite a Google saber dónde encontrar sus credenciales de autenticación. Ejecuta esto antes de comenzar tu Jupyter Notebook cada vez.
+Ahora debe establecer la variable de entorno llamada "GOOGLE_APPLICATION_CREDENTIALS" para apuntar a jupyter con la clave de su cuenta de servicio que acaba de crear. Esta variable le permite a Google saber dónde encontrar sus credenciales de autenticación. Ejecuta esto antes de ejecutar Jupyter Notebook.
 
 ```
 export GOOGLE_APPLICATION_CREDENTIALS="/Users/~...~/<file-name>.json"
+```
+
+### Agregar R a jupyter 📄
+
+* Antes que nada, asegurese de tener instalado R-base-core en la VM
+
+Para trabajar con R, deberá cargar el IRKernel y activarlo para comenzar a trabajar con R en el entorno de la notebook.
+Primero, necesitarás instalar algunos paquetes. Asegúrese de no hacer esto en su consola RStudio, pero en un terminal R regular
+```
+> install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))
+```
+```
+> devtools::install_github('IRkernel/IRkernel')
+```
+Hecho lo anterior, solo basta con hacer que el núcleo R sea visible para Jupyter:
+```
+> IRkernel::installspec()
+```
+Ahora abra jupyter notebook. Verá que R aparece en la lista de núcleos cuando cree un nuevo notebook. 
+
+![Alt Text](https://raw.githubusercontent.com/mjfrigaard/the-r-in-jupyter/master/1.2-new-r-kernal.png
+)
+
+### Agregar Apache Spark a jupyter 📄
+
+* Antes que nada, asegures de tener instalado:
+	* JDK 1.8
+	* Apache Spark en su última versión estable
+
+Para ejecutar Spark a través de jupyter notebook, se necesita un Jupyter Kernal para integrarlo con Apache Spark. En este caso
+se utilzará Apache Toree. Este paso consta de dos partes, instalar Apache Toree y configurarlo con Jupyter.
+```
+pip install -I https://pypi.anaconda.org/hyoon/simple toree
+```
+Ejecute el siguiente comando para configurar Apache Toree con Jupyter Notebook. Agregará los núcleos Scala y PySpark a jupyter.
+
+```
+jupyter toree install --spark_home /home/.../spark-2.2.0-bin-hadoop2.7/ --interpreters=Scala,PySpark --user
+```
+Ahora está listo para ejecutar su programa Spark en Jupyter notebook. Podra ver las 2 opciones (PySpark, Scala) al crear un nuevo cuaderno.
+![Alt Text](https://cdn-images-1.medium.com/max/1000/1*yt8va5iEfQ5sJKBjIUT7oA.png)
+
 
 🚀 📋 🔧 ⚙️ 🔩 ⌨️ 📦 🛠️ 🖇️ 📖 📌 ✒️ 📄 🎁 📢 🍺 🤓
