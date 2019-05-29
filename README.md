@@ -7,13 +7,13 @@
 # Descripción del problema 📌
 El problema que se quiere resolver es de disponibilizar un servicio de entorno analítico ocupando distintas herramientas de procesamiento de datos escalables (Base de datos con BigQuery, motor de procesamiento con Spark , interfaz de prueba de código con Jupiter Notebook bajo la arquitectura de Terraform). Dada la necesidad de procesar un conjunto de datos densos, se requiere implementar un sistema distirbuido para procesar eficientemente los datos.
 
-# Problemas y/o barreras detectadas
+# Problemas y/o barreras detectadas 📢
 
 Dentro de los problemas detectados, hubo en primer lugar una gran barrera que fue el acceso a la cuenta de Google cloud platform, puesto que solicita tarjeta de credito para acceder a sus servicios.
 Asi mismo, otros problemas fueron que habian muchos paquetes que estaban desactualizados por lo que no se podia implementar de manera correcta los diferentes lenguajes e integrarlos en jupyter.
 En el ambito general, hubieron muchas horas de investigacion para poder llegar al resultado obtenido.
 
-# Aplicación práctica
+# Aplicación práctica 🎁
 
 Nuestro objetivo es poder tener un entorno práctico donde poder manipular una gran cantidad de datos al alcance de la mano. De esta manera, para poder levantar el ambiente de trabajo se requiere combinar varias tecnologías y servicios, en este caso Jupyter notebook, Google Big Query, R, Python y Apache Spark, todo esto bajo una arquitectura basada en codigo con la cual nos apoyaremos de Terraform
 
@@ -121,17 +121,17 @@ Fascinante!
 
 ## Instalación 🔧
 
-### Configuración de VM 📄
+### Paso 1) Configuración de VM 📄
 
 En primer lugar, se debe crear un proyecto en google cloud para poder consumir sus servicios.
-Además, se debe configurar el archivo main.tf para poder levantar el entorno de desarroll. En este
+Además, se debe configurar el archivo main.tf para poder levantar el entorno de desarrollo con Terraform. En este
 punto se deben considerar los siguentes valores para utilizarlos dentro del archivo de configuración main.tf
 
 * proyect_id
 * credenciales del proyecto
 * nombre de la clave pública ssh
 
-El proyect_id se puede obtener directamente al crear un nuevo proyecto en google cloud
+El "proyect_id" se puede obtener directamente al crear un nuevo proyecto en google cloud.
 
 ![Alt Text](https://storage.googleapis.com/gcp-community/tutorials/getting-started-on-gcp-with-terraform/gcp_project_id.png)
 
@@ -145,7 +145,7 @@ provider "google" {
 }
 ```
 Las configuraciones de la instancia de la VM van dentro del grupo de recurso, tales como
-el nombre, el tipo de máquina, la interfaz de red asi como la imagen del SO a utilizar
+el nombre, el tipo de máquina, la interfaz de red asi como la imagen del SO a utilizar.
 
 ```
 resource "google_compute_instance" "default" {
@@ -153,7 +153,7 @@ resource "google_compute_instance" "default" {
 }
 ```
 Del mismo modo, la clave publica debe ser agregada dentro del grupo de recursos de la VM, donde
-el INSERT_USERNAME es el nombre asociado a la clave pública
+el INSERT_USERNAME es el nombre asociado a la clave pública.
 ```
 resource "google_compute_instance" "default" {
  ...
@@ -162,7 +162,7 @@ metadata {
  }
 }
 ```
-Asi mismo se deben habilitar puertos
+Asi mismo se deben habilitar puertos:
 ```
 resource "google_compute_firewall" "default" {
  name    = "flask-app-firewall"
@@ -174,7 +174,7 @@ resource "google_compute_firewall" "default" {
  }
 }
 ```
-y una variable para extraer la ip externa de la instancia
+y una variable para extraer la ip externa de la instancia:
 ```
 output "ip" {
  value = "${google_compute_instance.default.network_interface.0.access_config.0.nat_ip}"
@@ -182,7 +182,7 @@ output "ip" {
 ```
 
 Una vez configurado esto, se prodece a ejecutar los comandos de terraform para aplicar los 
-cambios y crear la instancia de la VM en google cloud
+cambios y crear la instancia de la VM en google cloud.
 
 ```
 $ terraform init
@@ -190,13 +190,13 @@ $ terraform plan
 $ terraform apply
 ```
 
-### Instalación de Jupyter Notebook 📄
+### Paso 2) Instalación de Jupyter Notebook 📄
 
-Una vez creada la VM, se debe acceder a ella a traves de ssh
+Una vez creada la VM, se debe acceder a ella a traves de ssh:
 ```
 ssh INSERT_USERNAME@IP_EXTERNAL
 ```
-En este punto se debe instalar jupyter siguiendo los siguientes comandos en la terminal ssh
+En este punto se debe instalar jupyter siguiendo los siguientes comandos en la terminal ssh:
 ```
 wget http://repo.continuum.io/archive/Anaconda3-4.0.0-Linux-x86_64.sh
 bash Anaconda3-4.0.0-Linux-x86_64.sh
@@ -211,7 +211,7 @@ in your /home/haroldsoh/.bashrc ?
 [yes|no][no] >>> yes
 ```
 
-### Configurar el servidor VM 📄
+### Paso 3) Configurar el servidor VM 📄
 
 Ahora necesita compruebar si tiene un archivo de configuración de Jupyter:
 ```
@@ -233,7 +233,7 @@ deberia quedar de la siguiente manera
 
 ![Alt Text](https://cdn-images-1.medium.com/max/1000/1*SwFnrGUO0gWSdO6z8oly_A.png)
 
-### Iniciando Jupyter notebook 📄
+### Paso 4) Iniciando Jupyter notebook 📄
 
 Para iniciar Jupyter, ingrese el siguiente comando en la terminal ssh
 ```
@@ -248,7 +248,7 @@ donde, la dirección IP externa es la dirección IP de la VM y el número de pue
 
 ![Alt Text](https://cdn-images-1.medium.com/max/1750/1*7ELRH-iVecVLtFo66jduxQ.png)
 
-### Anexar un dataset de Google Big Query 📄
+### Paso 5) Anexar un dataset de Google Big Query 📄
 
 Para agregar un dataset de Big Query solo basta con agregar un nuevo recurso al archivo main.tf
 ```
@@ -283,7 +283,7 @@ resource "google_bigquery_table" "default" {
 }
 ```
 
-### Consumir datos de Google Big Query utilizando Python 3 📄
+### Paso 6) Consumir datos de Google Big Query utilizando Python 3 📄
 
 Para consumir datos de algun schema en Big Query en primer lugar se requiere una clave
 de cuenta de servicios para Big Query. Esta se puede obtener dentro de las opciones en
@@ -309,7 +309,7 @@ Ahora debe establecer la variable de entorno llamada "GOOGLE_APPLICATION_CREDENT
 export GOOGLE_APPLICATION_CREDENTIALS="/Users/~...~/<file-name>.json"
 ```
 
-### Agregar R a jupyter 📄
+### Paso 7) Agregar R a jupyter 📄
 
 * Antes que nada, asegurese de tener instalado R-base-core en la VM
 
@@ -330,7 +330,7 @@ Ahora abra jupyter notebook. Verá que R aparece en la lista de núcleos cuando 
 ![Alt Text](https://raw.githubusercontent.com/mjfrigaard/the-r-in-jupyter/master/1.2-new-r-kernal.png
 )
 
-### Agregar Apache Spark a jupyter 📄
+### Paso 8) Agregar Apache Spark a jupyter 📄
 
 * Antes que nada, asegures de tener instalado:
 	* JDK 1.8
