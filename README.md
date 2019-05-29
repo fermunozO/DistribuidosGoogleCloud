@@ -19,9 +19,9 @@ En el ambito general, hubieron muchas horas de investigacion para poder llegar a
 
 # Aplicación práctica 🍺
 
-Nuestro objetivo es poder tener un entorno práctico donde poder manipular una gran cantidad de datos al alcance de la mano. De esta manera, para poder levantar el ambiente de trabajo se requiere combinar varias tecnologías y servicios, en este caso Jupyter notebook, Google Big Query, R, Python y Apache Spark, todo esto bajo una arquitectura basada en codigo con la cual nos apoyaremos de Terraform
+Nuestro objetivo es poder tener un entorno práctico donde poder manipular una gran cantidad de datos al alcance de la mano. De esta manera, para poder levantar el ambiente de trabajo se requiere combinar varias tecnologías y servicios, en este caso Jupyter notebook, Google Big Query, R, Python y Apache Spark, todo esto bajo una arquitectura basada en codigo con la cual nos apoyaremos de Terraform.
 
-Como ejemplo básico de lo que se puede logra hacer, utilizando la interfaz de Jupyter podremos ingresar datos a nuestra base de datos Big Query. Por ejemplo con el siguiente codigo en Python, podemos generar una cantidad N de personas aleatorias e ingresarlas de manera sencilla
+Como ejemplo básico de lo que se puede logra hacer, utilizando la interfaz de Jupyter podremos ingresar datos a nuestra base de datos Big Query. Por ejemplo con el siguiente codigo en Python, podemos generar una cantidad N de personas aleatorias e ingresarlas de manera sencilla.
 
 ```
 [(edad=53, estatura=68.18927069629541, genero='female', nombre='Carolyn Manuel', peso=1.5090926581606248),
