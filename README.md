@@ -7,6 +7,12 @@
 # Descripción del problema 📌
 El problema que se quiere resolver es de disponibilizar un servicio de entorno analítico ocupando distintas herramientas de procesamiento de datos escalables (Base de datos con BigQuery, motor de procesamiento con Spark , interfaz de prueba de código con Jupiter Notebook bajo la arquitectura de Terraform). Dada la necesidad de procesar un conjunto de datos densos, se requiere implementar un sistema distirbuido para procesar eficientemente los datos.
 
+# Problemas y/o barreras detectadas
+
+Dentro de los problemas detectados, hubo en primer lugar una gran barrera que fue el acceso a la cuenta de Google cloud platform, puesto que solicita tarjeta de credito para acceder a sus servicios.
+Asi mismo, otros problemas fueron que habian muchos paquetes que estaban desactualizados por lo que no se podia implementar de manera correcta los diferentes lenguajes e integrarlos en jupyter.
+En el ambito general, hubieron muchas horas de investigacion para poder llegar al resultado obtenido.
+
 # Aplicación práctica
 
 Nuestro objetivo es poder tener un entorno práctico donde poder manipular una gran cantidad de datos al alcance de la mano. De esta manera, para poder levantar el ambiente de trabajo se requiere combinar varias tecnologías y servicios, en este caso Jupyter notebook, Google Big Query, R, Python y Apache Spark, todo esto bajo una arquitectura basada en codigo con la cual nos apoyaremos de Terraform
