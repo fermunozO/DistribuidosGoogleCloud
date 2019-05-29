@@ -17,7 +17,7 @@ Dentro de los problemas detectados, hubo en primer lugar una gran barrera que fu
 Asi mismo, otros problemas fueron que habian muchos paquetes que estaban desactualizados por lo que no se podia implementar de manera correcta los diferentes lenguajes e integrarlos en jupyter.
 En el ambito general, hubieron muchas horas de investigacion para poder llegar al resultado obtenido.
 
-# Aplicación práctica 🎁
+# Aplicación práctica 🍺
 
 Nuestro objetivo es poder tener un entorno práctico donde poder manipular una gran cantidad de datos al alcance de la mano. De esta manera, para poder levantar el ambiente de trabajo se requiere combinar varias tecnologías y servicios, en este caso Jupyter notebook, Google Big Query, R, Python y Apache Spark, todo esto bajo una arquitectura basada en codigo con la cual nos apoyaremos de Terraform
 
