@@ -24,7 +24,7 @@ Nuestro objetivo es poder tener un entorno práctico donde poder manipular una g
 Como ejemplo básico de lo que se puede logra hacer, utilizando la interfaz de Jupyter podremos ingresar datos a nuestra base de datos Big Query. Por ejemplo con el siguiente codigo en Python, podemos generar una cantidad N de personas aleatorias e ingresarlas de manera sencilla.
 
 ```
-[(edad=53, estatura=68.18927069629541, genero='female', nombre='Carolyn Manuel', peso=1.5090926581606248),
+rows_to_insert = [(edad=53, estatura=68.18927069629541, genero='female', nombre='Carolyn Manuel', peso=1.5090926581606248),
   (edad=82, estatura=55.70266007380923, genero='male', nombre='Tim Vaughn', peso=1.4713677025968352),
   (edad=19, estatura=35.88645058366604, genero='male', nombre='Matt Whitehead', peso=1.4717804396700485),
   (edad=45, estatura=62.34714177776431, genero='male', nombre='Anthony Turner', peso=1.5419193846793644),
