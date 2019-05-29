@@ -197,6 +197,7 @@ $ terraform apply
 ### Paso 2) Instalación de Jupyter Notebook 📄
 
 Una vez creada la VM, se debe acceder a ella a traves de ssh:
+* NOTA: se le solicitará la credencial de su clave publica o en su defecto su passphrase.
 ```
 ssh INSERT_USERNAME@IP_EXTERNAL
 ```
@@ -261,7 +262,6 @@ resource "google_bigquery_dataset" "default" {
   friendly_name               = "test"
   description                 = "my-description"
   location                    = "EU"
-  default_table_expiration_ms = 3600000
 
   labels = {
     env = "default"
