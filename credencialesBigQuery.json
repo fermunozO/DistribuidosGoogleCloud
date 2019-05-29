@@ -1,0 +1,12 @@
+{
+    "type": "service_account",
+    "project_id": "x-pivot-241800",
+    "private_key_id": "a9faa48fcb6845ad5ef7ed6d61bf07e54d886272",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCyJ98Df56C9cka\npPrGs45B1DiNUBXljCfyxUuEtJN04O9f3yrVtvs0ydFe+8UYK14sjA09iiFtps/q\nTQVR2TRkRiv2OkNnDO7thJRn2yBj2LTXziQX7/pxrP0ax6d88YoNlKFcAobSyhDC\nRKtfz1TTmllsL9EZzekvRdfGCbm8cqNq5EJZs1wtTVHrkYU6j1zRT9pDVdckLxZP\nxaDGxKzao2t7Y3JzPgwNGEuQWkA0iuCfar1wtwQ00rfgLCC3J/a7WS38jAIufBuD\nmF4UBOhKNTtf3LMoyeFt43gwxfrNk48vXucLRP22DtE+OKc4aoBoCqkej/EJ5to4\nUzvPF67rAgMBAAECggEABShfrdDqseKTvpBlgjh94ddXBnWkbKTbczfVsTMudwUc\nE6vOUv7yftto6FW5pbLRDdEa1lvtY9NJ1FVZK2lyZC9z47Oux95OpymzcjOcgxzU\nVNBu/b0WLxGnB44dgeHW8VW1kN2x3DW6uSUWdmD2P7oJj2GYWCWR9ABoTXTH9SCq\ntxn4wg2OZsoLLOrHwH2z+qIQ/o+rKutSSt5qwOGYj9fZeovTm9MQm8YEh0YXg4fU\nffYx6lyCyRILmHqetLGYHDSO5EXxXhPdw8WTOZIh/FSHIJEFTyXiaMcNPEDrn4am\nwjuWkBxt3c64jiJ/E2ZA0vBqxwHT2crNSikw85KKoQKBgQDx0jR3cV6HLONDxFNT\n2Qr5474sxqDlxRt0Lf0GZzsVQRRTEKHJ2rIHyLWnV9XlhEo/vQKeNdEyo93lEkgU\nPRiwZghuP06Nrf9+w4LwBUzFDprA80iVbowTKBJgl3RUDc8wENk2NHPOOiLGureu\n6wUQ+B5FbR8Lhffv6r7ntDD3FwKBgQC8mgiAyOVpX7O60bSoZOs6C4Q8Po0hmH1A\ngnmWVIQuKcjYaJn4KNO9Ls12WfwnBIjyI1k07FAqZ3eFpUs+CtcJdq/b3yD9OXBm\neAhAqFob4mSUuNY/KpvdNIdrtOmvUvrA3c0BHaeKkoKo5D0p4RiWUKIJ0evsZyag\n9ANylderTQKBgDhFI7RPiyGFTnTscD9ol+dCGXSt267byOGl+eTNjLALbsFNc3hX\nDWpGSA7in4FC4UwnnT5XY5CXFQFC2cbr2JzjgT62OH87Z+KFeCiF8zE/jr8rXU54\nZNvoTS5wz77nX7jdks3MMs5gNMttk2R+h7VFJzYciEbUK7eGNloQUfyNAoGAd9KQ\n1mlMPz87K9Txpw6+15jbgX7oIVEFOofqgZTeiYmofb0vHRerNoVWqfuPlKZv7w6A\nLXx5jgdAS1txy1ANwIh0QAepqNfmTmOyMooC/bY+2rH4BBepAMfPxaEh2m6ouwHv\nrebOO97LPkwLg+DrwwwldoG1FvON+jItQo5qf/0CgYA5KbePYPMLhUZHecXFK9CL\nGaQvUMaYQgvzWKe9LZ25tJzFoKPHro4mxsU+bfTUgWlKbSNW4OuNgs8fGQwTuwJ4\n+Wl2X+XyD/YxBFqsN2DG6CIfAjfFDM5XDXbvhNVCMAWhFAVcGGwyn2rGTYfkw1NQ\nnK1NmNnsPMKMpGMVWabIeQ==\n-----END PRIVATE KEY-----\n",
+    "client_email": "bq-jupyternotebook@x-pivot-241800.iam.gserviceaccount.com",
+    "client_id": "100928993154650104392",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bq-jupyternotebook%40x-pivot-241800.iam.gserviceaccount.com"
+  }
