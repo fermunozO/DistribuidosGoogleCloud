@@ -17,14 +17,14 @@ Dentro de los problemas detectados, hubo en primer lugar una gran barrera que fu
 Asi mismo, otros problemas fueron que habian muchos paquetes que estaban desactualizados por lo que no se podia implementar de manera correcta los diferentes lenguajes e integrarlos en jupyter.
 En el ambito general, hubieron muchas horas de investigacion para poder llegar al resultado obtenido.
 
-# Aplicación práctica 🎁
+# Aplicación práctica 🍺
 
-Nuestro objetivo es poder tener un entorno práctico donde poder manipular una gran cantidad de datos al alcance de la mano. De esta manera, para poder levantar el ambiente de trabajo se requiere combinar varias tecnologías y servicios, en este caso Jupyter notebook, Google Big Query, R, Python y Apache Spark, todo esto bajo una arquitectura basada en codigo con la cual nos apoyaremos de Terraform
+Nuestro objetivo es poder tener un entorno práctico donde poder manipular una gran cantidad de datos al alcance de la mano. De esta manera, para poder levantar el ambiente de trabajo se requiere combinar varias tecnologías y servicios, en este caso Jupyter notebook, Google Big Query, R, Python y Apache Spark, todo esto bajo una arquitectura basada en codigo con la cual nos apoyaremos de Terraform.
 
-Como ejemplo básico de lo que se puede logra hacer, utilizando la interfaz de Jupyter podremos ingresar datos a nuestra base de datos Big Query. Por ejemplo con el siguiente codigo en Python, podemos generar una cantidad N de personas aleatorias e ingresarlas de manera sencilla
+Como ejemplo básico de lo que se puede logra hacer, utilizando la interfaz de Jupyter podremos ingresar datos a nuestra base de datos Big Query. Por ejemplo con el siguiente codigo en Python, podemos generar una cantidad N de personas aleatorias e ingresarlas de manera sencilla.
 
 ```
-[(edad=53, estatura=68.18927069629541, genero='female', nombre='Carolyn Manuel', peso=1.5090926581606248),
+rows_to_insert = [(edad=53, estatura=68.18927069629541, genero='female', nombre='Carolyn Manuel', peso=1.5090926581606248),
   (edad=82, estatura=55.70266007380923, genero='male', nombre='Tim Vaughn', peso=1.4713677025968352),
   (edad=19, estatura=35.88645058366604, genero='male', nombre='Matt Whitehead', peso=1.4717804396700485),
   (edad=45, estatura=62.34714177776431, genero='male', nombre='Anthony Turner', peso=1.5419193846793644),
