@@ -7,6 +7,91 @@
 # Descripción del problema 📌
 El problema que se quiere resolver es de disponibilizar un servicio de entorno analítico ocupando distintas herramientas de procesamiento de datos escalables (Base de datos con BigQuery, motor de procesamiento con Spark , interfaz de prueba de código con Jupiter Notebook bajo la arquitectura de Terraform). Dada la necesidad de procesar un conjunto de datos densos, se requiere implementar un sistema distirbuido para procesar eficientemente los datos.
 
+# Aplicación práctica
+
+Nuestro objetivo es poder tener un entorno práctico donde poder manipular una gran cantidad de datos al alcance de la mano. De esta manera, para poder levantar el ambiente de trabajo se requiere combinar varias tecnologías y servicios, en este caso Jupyter notebook, Google Big Query, R, Python y Apache Spark, todo esto bajo una arquitectura basada en codigo con la cual nos apoyaremos de Terraform
+
+Como ejemplo básico de lo que se puede logra hacer, utilizando la interfaz de Jupyter podremos ingresar datos a nuestra base de datos Big Query. Por ejemplo con el siguiente codigo en Python, podemos generar una cantidad N de personas aleatorias e ingresarlas de manera sencilla
+
+```
+[(edad=53, estatura=68.18927069629541, genero='female', nombre='Carolyn Manuel', peso=1.5090926581606248),
+  (edad=82, estatura=55.70266007380923, genero='male', nombre='Tim Vaughn', peso=1.4713677025968352),
+  (edad=19, estatura=35.88645058366604, genero='male', nombre='Matt Whitehead', peso=1.4717804396700485),
+  (edad=45, estatura=62.34714177776431, genero='male', nombre='Anthony Turner', peso=1.5419193846793644),
+  (edad=33, estatura=81.03913924707561, genero='female', nombre='Diane Keyes', peso=1.6906731469220142),
+  (edad=27, estatura=77.9606250225021, genero='female', nombre='Dorothy Guieb', peso=1.9682002494175275),
+  (edad=87, estatura=75.77433626854037, genero='female', nombre='Lisa Reynolds', peso=1.848592263893368),
+  (edad=71, estatura=46.08094018740735, genero='male', nombre='Mike Smith', peso=1.550111882749193),
+  (edad=89, estatura=73.85156406243465, genero='male', nombre='Shane Halstead', peso=1.6451370044264957),
+  (edad=18, estatura=45.32750817059075, genero='male', nombre='Kristopher Eager', peso=2.036834995896506),
+  (edad=40, estatura=76.01341343608632, genero='male', nombre='John Roorda', peso=1.8613356481652992),
+  (edad=80, estatura=85.14753512878423, genero='male', nombre='Bruce Anderson', peso=1.4524308280574405),
+  (edad=43, estatura=64.33607237785482, genero='female', nombre='Frances Lopez', peso=1.6282678979104492),
+  (edad=72, estatura=44.686542409367135, genero='male', nombre='Daniel Parker', peso=2.0874359066940307),
+  (edad=38, estatura=63.716831496820596, genero='female', nombre='Emilia Mccluskey', peso=1.637577613490331),
+  (edad=25, estatura=54.827771346892206, genero='female', nombre='Mary Gonzales', peso=1.8597714297798233),
+  (edad=71, estatura=70.99515602958475, genero='female', nombre='Charlotte Maynard', peso=1.9668774517247813),
+  (edad=34, estatura=88.92154783666567, genero='female', nombre='Margaret Garrett', peso=1.8579289357251958),
+  (edad=66, estatura=76.54271294885405, genero='male', nombre='Christopher Keith', peso=1.9858323962309903),
+  (edad=31, estatura=61.54702494719777, genero='female', nombre='Frances Santorelli', peso=1.570490897663655)]
+ ```
+ 
+```python
+def export_items_to_bigquery(rows_to_insert):
+    # Instanciar el cliente
+    bigquery_client = bigquery.Client()
+
+    # Preparar la referencia al dataset y a la tabla que tenemos en Big Query
+    dataset_ref = bigquery_client.dataset('Dataset_1')
+    table_ref = dataset_ref.table('Personas')
+     
+    # LLamamos a la API para obtener la tabla que referenciamos
+    table = bigquery_client.get_table(table_ref) 
+    
+    # Procedemos a ingresar en la tabla nuestras filas que creamos 
+    errors = bigquery_client.insert_rows(table, rows_to_insert)  # API request
+    assert errors == []
+  ```
+De esta manera, si miramos la consola de Big Query tendermos que la inserción se realizó exitosamente
+
+![Alt Text](https://i.ibb.co/P9NFQfW/bq.png)
+
+Ahora, en el caso que querramos trabajar con la información almacenada en la base de datos, podemos realizar la consulta de los datos de la misma manera.
+
+ ```python
+ def import_items_from_bigquery():
+    # Iniciacion del cliente
+    bigquery_client = bigquery.Client()
+    
+    # Query de BigQuery
+    QUERY = """ SELECT * FROM `x-pivot-241800.Dataset_1.Personas` LIMIT 100 """
+    
+    # Arranca la Query y se obtienen los datos
+    query_job = bigquery_client.query(QUERY) # API REQUEST
+    
+    return query_job.to_dataframe()
+ ```
+![Alt Text](https://i.ibb.co/YDpb9fV/import.png)
+
+De esta forma, tenemos acceso total a la base de datos Big Query a traves de la interfaz de Jupyter Notebook utilizando Python.
+
+#### Procedimiento con Spark
+Para manipular los datos con Apache Spark, nos situamos en el mismo contexto de la sección anterior; Queremos obtener datos para realizar análisis y procesamiento sobre esto. 
+Para esto, utilizamos en conjunto con Python el modulo PySpark con la cual podremos manipular los datos obtenidos
+
+![Alt Text](https://i.ibb.co/gS3SMwb/spark.png)
+
+de esta manera, damos cuenta del acceso a los datos por parte de las funciones de Spark.
+Ahora bien, podemos realizar pequeños calculos sobre estos datos. Veamos un ejemplo donde se muestre un resumen de las edades de las personas:
+
+![Alt Text](https://i.ibb.co/vQr5yQY/summary.png)
+
+Fascinante!
+
+
+
+
+
 # Preparación del ambiente 🚀
 
 ## Tecnologías a utilizar 
