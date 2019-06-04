@@ -1,4 +1,4 @@
-# Laboratorio 2 Sistemas Distribuidos
+# Servicio de entorno analítico (Distribuidos Lab 2)
 
  Integrantes: ✒️
  -Fernanda Muñoz
